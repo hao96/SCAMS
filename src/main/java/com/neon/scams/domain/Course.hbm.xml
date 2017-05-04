@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+ "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+ 
+<hibernate-mapping package="com.neon.scams.domain">
+		<class name="Course" table="course">
+			<id name="id">
+				<generator class="native"></generator>
+			</id>
+			<property name="cname"></property>
+			<property name="cnum"></property>
+			
+			<set name="students" inverse="true">        
+        		<key column="courseid"/>  
+        		<one-to-many class="com.neon.scams.domain.S_C"/>  
+    		</set> 
+    		
+
+	</class>
+
+</hibernate-mapping>

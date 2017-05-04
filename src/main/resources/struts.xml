@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC 
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN" 
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+	
+<struts>
+	<!-- 配置为开发模式 -->
+	<constant name = "struts.devMode" value = "true"/>
+	<!-- 把扩展名配置为action -->
+	<constant name = "struts.action.extension" value = "action"/> 
+	<!-- 吧主题配置为simple -->
+	<constant name = "struts.ui.theme" value = "simple"/>
+	
+	<package name="default" namespace="/" extends="struts-default">
+		
+<!-- 	配置测试用的Action 未与Spring整合 ， class属性写类的全名
+	当Struts2与Spring整合后，class属性可以写bean名称 -->
+ 
+	
+	<action name="login_*" class="loginAction" method="{1}">
+		<result name="loginUI">/WEB-INF/jsp/login.jsp</result>
+		<result name="toLogin">/WEB-INF/jsp/main.jsp</result>
+		<result name="main">/WEB-INF/jsp/index.jsp</result>
+		<result name="logout" type="redirect">login_loginUI.action</result>  
+	</action> 
+	
+	<action name="frame_*" class="frameAction" method="{1}">
+		<result name="topUI">/WEB-INF/jsp/top.jsp</result>
+		<result name="leftUI">/WEB-INF/jsp/left.jsp</result>
+		<result name="indexUI">/WEB-INF/jsp/index.jsp</result>
+	</action> 
+	
+	<action name="admin_*" class="adminAction" method="{1}">
+		<result name="stulog">/WEB-INF/jsp/stulog.jsp</result>
+		<result name="stuselect">/WEB-INF/jsp/stuselect.jsp</result>
+		<result name="stualter">/WEB-INF/jsp/stualter.jsp</result>
+		<result name="myxxselect">/WEB-INF/jsp/myxxselect.jsp</result>
+		<result name="passwordalter">/WEB-INF/jsp/passwordalter.jsp</result>
+		<result name="tostualter" type="redirect">admin_stualter.action</result>
+	</action>
+	
+	
+	
+	<action name="kc_*" class="kcAction" method="{1}">
+		<result name="stukclog">/WEB-INF/jsp/stukclog.jsp</result>
+		<result name="kcPrepare">/WEB-INF/jsp/stukclog.jsp</result>
+		<result name="stukcselect">/WEB-INF/jsp/stukcselect.jsp</result>
+		<result name="stukcalter">/WEB-INF/jsp/stukcalter.jsp</result>
+		<result name="mykcselect">/WEB-INF/jsp/mykcselect.jsp</result>
+		<result name="myzcselect">/WEB-INF/jsp/myzcselect.jsp</result>
+	</action>
+	
+	<action name="hd_*" class="hdAction" method="{1}">
+		<result name="stuhdlog">/WEB-INF/jsp/stuhdlog.jsp</result>
+		<result name="tostuhdlog" type="redirect">hd_stuhdlog.action</result>
+		<result name="stuhdselect">/WEB-INF/jsp/stuhdselect.jsp</result>
+		<result name="tostuhdselect" type="redirect">hd_stuhdselect.action</result>
+		<result name="stuhdalter">/WEB-INF/jsp/stuhdalter.jsp</result>
+		<result name="tostuhdalter" type="redirect">hd_stuhdselect.action</result>
+		<result name="myhdselectde">/WEB-INF/jsp/myhdselectde.jsp</result>
+		<result name="myhdselect">/WEB-INF/jsp/myhdselect.jsp</result>
+	</action>
+	
+	<action name="cx_*" class="innovateAction" method="{1}">
+		<result name="stucxlog">/WEB-INF/jsp/stucxlog.jsp</result>
+		<result name="stucxselect">/WEB-INF/jsp/stucxselect.jsp</result>
+		<result name="stucxalter">/WEB-INF/jsp/stucxalter.jsp</result>
+		<result name="mycxselect">/WEB-INF/jsp/mycxselect.jsp</result>
+	</action>
+	
+	<action name="error_*" class="errorAction" method="{1}">
+		<result name="errorapply">/WEB-INF/jsp/errorapply.jsp</result>
+		<result name="errordo">/WEB-INF/jsp/errordo.jsp</result>
+		<result name="errorwait">/WEB-INF/jsp/errorwait.jsp</result>
+	</action>
+	
+	<action name="pe_*" class="peAction" method="{1}">
+		<result name="stutylog">/WEB-INF/jsp/stutylog.jsp</result>
+		<result name="stutyselect">/WEB-INF/jsp/stutyselect.jsp</result>
+		<result name="stutyalter">/WEB-INF/jsp/stutyalter.jsp</result>
+		<result name="mytyselect">/WEB-INF/jsp/mytyselect.jsp</result>
+	</action>
+	
+	<action name="user_*" class="userAction" method="{1}">
+		<result name="passwordalter">/WEB-INF/jsp/passwordalter.jsp</result>
+	</action>
+	
+	
+	</package>
+
+</struts>
